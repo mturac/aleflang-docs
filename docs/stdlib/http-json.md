@@ -1,7 +1,5 @@
 # HTTP and JSON
 
-Alef's HTTP server API is small enough to remember.
-
 ## Minimal Server
 
 ```alef
@@ -29,7 +27,7 @@ fn main() {
 
 ## Request Shape
 
-Handlers receive a request map with useful fields:
+Handlers receive a request map:
 
 ```alef
 request["method"]
@@ -40,22 +38,18 @@ request["params"]
 request["body"]
 ```
 
+## Responses
+
+```alef
+json_response(json_encode({ "ok" => true }))
+problem_response(404, "not_found", "missing", "req-1")
+html("<h1>Hello</h1>")
+```
+
 ## JSON
 
 ```alef
-let body = json_encode({ "ok" => true, "items" => [1, 2, 3] })
+let body = json_encode({ "items" => [1, 2, 3] })
 let value = json_decode(body)
 println(value["items"][0])
 ```
-
-## Problem Responses
-
-```alef
-import std.http { problem_response }
-
-return with_state(
-    problem_response(404, "not_found", "account not found", "req-1"),
-    state
-)
-```
-

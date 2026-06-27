@@ -1,8 +1,6 @@
 # Results and Errors
 
-Alef favors explicit result values for operations that can fail.
-
-## Result
+Alef uses explicit values for operations that can fail.
 
 ```alef
 fn divide(a: f64, b: f64) -> Result<f64, string> {
@@ -13,16 +11,16 @@ fn divide(a: f64, b: f64) -> Result<f64, string> {
 }
 ```
 
-## `?` Operator
+## `?`
+
+The `?` operator unwraps `Ok(value)` and early-returns on `Err(error)`.
 
 ```alef
 let x = divide(20.0, 4.0)?
 let y = divide(x, 2.0)?
 ```
 
-`?` unwraps `Ok(value)` and early-returns on `Err(error)`.
-
-## HTTP Client
+## HTTP Client Results
 
 Native HTTP client calls return `Result<HttpResponse, string>`:
 
@@ -33,5 +31,4 @@ match std.http.get("https://example.com") {
 }
 ```
 
-This makes timeout, DNS, and transport failures visible in normal code.
-
+This avoids silent network failures.

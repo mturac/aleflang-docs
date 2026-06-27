@@ -1,9 +1,9 @@
-# Tutorial: AI-Native Workflow
+# Tutorial: Build an AI Workflow
 
-This tutorial builds a ticket router that uses ordinary Alef functions for
-business logic and `std.ai` for the provider boundary.
+This tutorial builds a support-ticket classifier with a deterministic AI
+provider boundary.
 
-## 1. Classify Input
+## Classify Tickets
 
 ```alef
 fn contains_any(text, words) {
@@ -30,10 +30,10 @@ fn classify_ticket(ticket) {
 }
 ```
 
-## 2. Add AI Summary
+## Add AI Summary
 
 ```alef
-fn ai_summary(ticket, queue, priority) {
+fn ai_summary(ticket, queue) {
     let prompt = "Summarize ticket " + ticket["id"] + " for " + queue
     let response = std.ai.response_with("stub", prompt)
     return {
@@ -45,54 +45,20 @@ fn ai_summary(ticket, queue, priority) {
 }
 ```
 
-The `stub` provider is deterministic. Swap it for a live provider when the
-environment is configured.
-
-## 3. Return JSON
+## Output JSON
 
 ```alef
 fn main() {
     let ticket = {
         "id" => "TCK-1001",
-        "plan" => "startup",
         "title" => "Refund for duplicate invoice",
         "body" => "Customer was charged twice."
     }
     let queue = classify_ticket(ticket)
-    let payload = {
+    println(json_encode({
         "id" => ticket["id"],
         "queue" => queue,
-        "ai" => ai_summary(ticket, queue, "p2")
-    }
-    println(json_encode(payload))
+        "ai" => ai_summary(ticket, queue)
+    }))
 }
 ```
-
-Run:
-
-```bash
-ALEF_AI_PROVIDER=stub alef run main.alef
-```
-
-## Provider Pattern
-
-Use stub for tests:
-
-```alef
-let r = std.ai.response_with("stub", "hello")
-```
-
-Use configured defaults for runtime environments:
-
-```alef
-let r = std.ai.response("hello")
-```
-
-Use named providers when credentials or local services exist:
-
-```alef
-let r = std.ai.response_with("ollama", "hello")
-let r = std.ai.response_with("minimax", "hello")
-let r = std.ai.response_with("mimo", "hello")
-```
-
