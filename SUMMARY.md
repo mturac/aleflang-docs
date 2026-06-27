@@ -9,6 +9,13 @@
 * [Quickstart](docs/getting-started/quickstart.md)
 * [Project Structure](docs/getting-started/project-structure.md)
 
+## Using and Understanding Alef
+
+* [Effective Alef](docs/using/effective-alef.md)
+* [FAQ](docs/using/faq.md)
+* [Editor Plugins and IDEs](docs/using/editor-tools.md)
+* [Diagnostics](docs/using/diagnostics.md)
+
 ## Language Guide
 
 * [Language Tour](docs/language/tour.md)
@@ -35,6 +42,16 @@
 * [AI Providers](docs/stdlib/ai.md)
 * [Database and Cache](docs/stdlib/db-cache.md)
 
+## Accessing Databases
+
+* [Accessing a Database](docs/database/accessing-databases.md)
+* [Database Smoke Tests](docs/database/database-smoke-tests.md)
+
+## Developing Modules
+
+* [Developing Modules](docs/modules/developing-modules.md)
+* [Publishing Example Repositories](docs/modules/publishing-examples.md)
+
 ## Tutorials
 
 * [Build a Native API](docs/tutorials/native-api.md)
@@ -50,5 +67,12 @@
 ## Reference
 
 * [Syntax Reference](docs/reference/syntax.md)
+* [alef.mod Reference](docs/reference/alef-mod.md)
+* [Release Notes](docs/reference/release-notes.md)
 * [Examples](docs/reference/examples.md)
 * [GitBook Publishing](docs/reference/gitbook-publishing.md)
+
+## Codewalks
+
+* [TicketDesk UI Codewalk](docs/codewalks/ticketdesk-ui.md)
+* [Agent Ticket Router Codewalk](docs/codewalks/agent-ticket-router.md)
