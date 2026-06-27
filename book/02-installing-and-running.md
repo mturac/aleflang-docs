@@ -1,24 +1,46 @@
 # 2. Installing And Running Alef
 
-During early public development, Alef can be used from a source checkout.
+Alef users should not need the private Alef source repository.
+
+Public usage is built around the `alef` command. Download the current macOS
+arm64 binary from the public documentation release:
 
 ```bash
-git clone https://github.com/mturac/aleflang
-cd aleflang
-npm install
-npm run build
+curl -L -o alef \
+  https://github.com/mturac/aleflang-docs/releases/latest/download/alef-darwin-arm64
+chmod +x ./alef
+./alef --version
 ```
 
-Run a program through the CLI wrapper:
+Move it somewhere on your `PATH` when you want to call it as `alef`:
 
 ```bash
-node dist/cli.js run examples/hello.alef
+mkdir -p ~/.local/bin
+mv ./alef ~/.local/bin/alef
+alef --version
 ```
 
-If you have the native binary:
+Other platform binaries can be added to the same release without opening the
+private Alef compiler or runtime source repository.
+
+Verify that the command is available:
 
 ```bash
-native_runtime/target/release/alef run examples/hello.alef
+alef --version
+```
+
+If you receive a standalone native binary, place it on your `PATH` as `alef`:
+
+```bash
+chmod +x ./alef
+./alef --version
+```
+
+Example repositories should also accept `ALEF_BIN` so they can run with either
+an installed command or an explicitly provided binary:
+
+```bash
+ALEF_BIN=/path/to/alef bash scripts/smoke.sh
 ```
 
 ## Running A File
@@ -40,13 +62,11 @@ alef doctor
 
 Use these before guessing about provider, runtime, or feature availability.
 
-## Example Repositories
+## Public Examples Without Source Access
 
-Public example repositories should accept `ALEF_BIN`:
+Public examples should contain `.alef` programs, fixtures, smoke scripts, and
+README instructions. They should not require access to the private Alef compiler
+or runtime source tree.
 
-```bash
-ALEF_BIN=/path/to/alef bash scripts/smoke.sh
-```
-
-This keeps examples portable. A README should never require a machine-local
-path.
+This keeps the project shape simple: the language source can stay private while
+docs, tutorials, and example applications remain useful to readers.

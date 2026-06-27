@@ -1,42 +1,63 @@
 # Installation
 
-Alef can be used from a source checkout while the public package channel is
-being prepared.
+Alef's source repository is private. Public users install or receive the `alef`
+command and write `.alef` programs against the documented language contract.
 
-## From Source
+## Install The Command
+
+Use the release channel provided by the Alef team. The current public build is
+for macOS arm64:
 
 ```bash
-git clone https://github.com/mturac/aleflang
-cd aleflang
-npm install
-npm run build
+curl -L -o alef \
+  https://github.com/mturac/aleflang-docs/releases/latest/download/alef-darwin-arm64
+chmod +x ./alef
+./alef --version
 ```
 
-Run an example:
+Move it onto your `PATH` when you are ready:
 
 ```bash
-node dist/cli.js run examples/hello.alef
+mkdir -p ~/.local/bin
+mv ./alef ~/.local/bin/alef
+alef --version
 ```
 
-If you have a native binary:
+If you are given a standalone binary, make it executable and run it directly:
 
 ```bash
-native_runtime/target/release/alef run examples/hello.alef
+chmod +x ./alef
+./alef --version
+```
+
+Then run a program:
+
+```bash
+alef run main.alef
 ```
 
 ## Requirements
 
-- Node.js for the TypeScript CLI wrapper and build scripts
-- Rust for the native runtime build
-- Go only when using the optional Go codegen path
+- an `alef` command or standalone Alef binary
+- Node.js only for JavaScript-based example tooling
+- Go only when a public example uses the optional Go codegen path
 
-## Recommended Developer Alias
+You do not need the private compiler or runtime source tree to follow this
+documentation.
 
-For local examples, set `ALEF_BIN`:
+## Available Public Build
+
+- `alef-darwin-arm64`: macOS Apple Silicon
+
+Additional platform binaries can be attached to the same GitHub release without
+opening the Alef source repository.
+
+## Recommended Example Hook
+
+Public example repositories should accept `ALEF_BIN`:
 
 ```bash
-export ALEF_BIN=/path/to/aleflang/native_runtime/target/release/alef
+ALEF_BIN=/path/to/alef bash scripts/smoke.sh
 ```
 
-Public example repos use `ALEF_BIN` so they can be cloned next to Alef or run
-with an installed `alef` command.
+If `ALEF_BIN` is not set, examples should fall back to `alef` from `PATH`.

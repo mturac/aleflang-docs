@@ -10,7 +10,7 @@
 
 ## Part II: The Language
 
-* [4. Values, Bindings, And Functions](book/04-values-bindings-functions.md)
+* [4. Syntax Fundamentals](book/04-values-bindings-functions.md)
 * [5. Control Flow](book/05-control-flow.md)
 * [6. Collections And Data Modeling](book/06-collections-data-modeling.md)
 * [7. Results, Options, And Errors](book/07-results-options-errors.md)

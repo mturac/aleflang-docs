@@ -22,6 +22,21 @@ AI-native means AI provider calls are part of the standard library story. It
 does not mean Alef is an app template. Ticket boards, APIs, and agent workflows
 are examples of programs written in Alef.
 
+## Public Surface
+
+Alef's language documentation, examples, tutorials, and release artifacts can be
+public. The Alef compiler, native runtime implementation, and private source
+repository are not part of the public surface.
+
+That means this book teaches the language contract:
+
+- how `.alef` programs are written
+- how the `alef` command is used
+- how standard-library modules behave
+- how public example repositories should be structured
+
+It does not require readers to clone or inspect the private Alef source tree.
+
 ## How To Read This Book
 
 Start with Part I if you want the language model. It explains why Alef exists,

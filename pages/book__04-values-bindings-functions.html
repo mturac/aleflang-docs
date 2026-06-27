@@ -3,41 +3,100 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>4. Values, Bindings, And Functions · Alef</title>
+  <title>4. Syntax Fundamentals · Alef</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
   <aside class="sidebar">
     <a class="brand" href="../index.html">Alef</a>
-    <nav><a href="book__01-why-alef-is-a-language.html">1. Why Alef Is A Language</a><a href="book__02-installing-and-running.html">2. Installing And Running Alef</a><a href="book__03-your-first-program.html">3. Your First Alef Program</a><a href="book__04-values-bindings-functions.html">4. Values, Bindings, And Functions</a><a href="book__05-control-flow.html">5. Control Flow</a><a href="book__06-collections-data-modeling.html">6. Collections And Data Modeling</a><a href="book__07-results-options-errors.html">7. Results, Options, And Errors</a><a href="book__08-modules-project-structure.html">8. Modules And Project Structure</a><a href="book__09-cli-native-runtime.html">9. The Alef CLI And Native Runtime</a><a href="book__10-http-json.html">10. HTTP And JSON</a><a href="book__11-database-cache-state.html">11. Database, Cache, And State</a><a href="book__12-ai-standard-library.html">12. AI As Standard Library</a><a href="book__13-testing.html">13. Testing Alef Programs</a><a href="book__14-building-a-native-api.html">14. Building A Native API</a><a href="book__15-building-ticketdesk-ui.html">15. Building TicketDesk UI</a><a href="book__16-building-ai-ticket-router.html">16. Building An AI Ticket Router</a></nav>
+    <nav><a href="book__01-why-alef-is-a-language.html">1. Why Alef Is A Language</a><a href="book__02-installing-and-running.html">2. Installing And Running Alef</a><a href="book__03-your-first-program.html">3. Your First Alef Program</a><a href="book__04-values-bindings-functions.html">4. Syntax Fundamentals</a><a href="book__05-control-flow.html">5. Control Flow</a><a href="book__06-collections-data-modeling.html">6. Collections And Data Modeling</a><a href="book__07-results-options-errors.html">7. Results, Options, And Errors</a><a href="book__08-modules-project-structure.html">8. Modules And Project Structure</a><a href="book__09-cli-native-runtime.html">9. The Alef CLI And Native Runtime</a><a href="book__10-http-json.html">10. HTTP And JSON</a><a href="book__11-database-cache-state.html">11. Database, Cache, And State</a><a href="book__12-ai-standard-library.html">12. AI As Standard Library</a><a href="book__13-testing.html">13. Testing Alef Programs</a><a href="book__14-building-a-native-api.html">14. Building A Native API</a><a href="book__15-building-ticketdesk-ui.html">15. Building TicketDesk UI</a><a href="book__16-building-ai-ticket-router.html">16. Building An AI Ticket Router</a></nav>
     <div class="nav-label">Appendices</div>
     <nav><a href="docs__reference__syntax.html">A. Syntax Reference</a><a href="docs__runtime__cli.html">B. Command Reference</a><a href="docs__stdlib__overview.html">C. Standard Library Reference</a><a href="docs__reference__gitbook-publishing.html">D. GitBook Publishing</a></nav>
   </aside>
   <main class="content">
-    <h1>4. Values, Bindings, And Functions</h1>
-<p>Alef uses <code>let</code> for local bindings.</p>
-<pre><code class="language-alef">let name = &quot;Ada&quot;
+    <h1>4. Syntax Fundamentals</h1>
+<p>This chapter teaches the core syntax you need before reading the standard library or the larger examples.</p>
+<p>Alef programs are plain text files ending in <code>.alef</code>. A program is made of imports, declarations, and statements. The usual entrypoint is <code>main</code>.</p>
+<pre><code class="language-alef">
+fn main() {
+    println(&quot;hello&quot;)
+}
+</code></pre>
+<p>Blocks use braces. Statements are newline-oriented, so simple examples do not need semicolons.</p>
+<h2>Comments</h2>
+<p>Use <code>//</code> for a line comment.</p>
+<pre><code class="language-alef">
+// This runs when the program starts.
+fn main() {
+    println(&quot;ready&quot;)
+}
+</code></pre>
+<h2>Values</h2>
+<p>Alef has strings, integers, floats, booleans, arrays, maps, structs, enums, <code>Result</code>, and <code>Option</code>.</p>
+<pre><code class="language-alef">
+let name = &quot;Ada&quot;
 let count = 3
-let ready = true</code></pre>
+let ratio = 0.75
+let ready = true
+</code></pre>
+<p>Strings support interpolation with <code>{name}</code>:</p>
+<pre><code class="language-alef">
+let id = &quot;TD-101&quot;
+println(&quot;ticket {id} loaded&quot;)
+</code></pre>
+<h2>Bindings</h2>
+<p>Use <code>let</code> for local bindings.</p>
 <p>Bindings can be reassigned when a program needs to move state forward:</p>
-<pre><code class="language-alef">let status = &quot;triage&quot;
-status = &quot;progress&quot;</code></pre>
+<pre><code class="language-alef">
+let status = &quot;triage&quot;
+status = &quot;progress&quot;
+</code></pre>
+<p>Prefer reassignment when the program is modeling an actual state transition. Prefer new names when each value has a distinct meaning.</p>
 <h2>Functions</h2>
-<pre><code class="language-alef">fn add(a, b) {
+<pre><code class="language-alef">
+fn add(a, b) {
     return a + b
-}</code></pre>
+}
+</code></pre>
 <p>Typed signatures are available when they clarify the program:</p>
-<pre><code class="language-alef">fn label(id: string, title: string) -&gt; string {
+<pre><code class="language-alef">
+fn label(id: string, title: string) -&gt; string {
     return &quot;{id}: {title}&quot;
-}</code></pre>
+}
+</code></pre>
+<p>Functions are called with parentheses:</p>
+<pre><code class="language-alef">
+let text = label(&quot;TD-101&quot;, &quot;Checkout timeout&quot;)
+println(text)
+</code></pre>
 <h2>Early Returns</h2>
-<pre><code class="language-alef">fn priority(plan, blocked) {
+<pre><code class="language-alef">
+fn priority(plan, blocked) {
     if plan == &quot;enterprise&quot; and blocked {
         return &quot;P0&quot;
     }
     return &quot;P2&quot;
-}</code></pre>
-<p>Alef code should read like a direct description of the case being handled.</p>
+}
+</code></pre>
+<h2>Operators</h2>
+<p>Alef supports common arithmetic, comparison, and boolean operators:</p>
+<pre><code class="language-alef">
+let total = subtotal + tax
+let retry = attempts &lt; 3
+let urgent = priority == &quot;P0&quot; or customer == &quot;enterprise&quot;
+let ready = not blocked and assigned
+</code></pre>
+<p>Use <code>==</code> for equality. Use <code>and</code>, <code>or</code>, and <code>not</code> for boolean logic.</p>
+<h2>Imports</h2>
+<p>Imports bring standard-library names into scope:</p>
+<pre><code class="language-alef">
+import std.http { json_response }
+
+fn health(request, state) {
+    return json_response(&quot;{\&quot;ok\&quot;:true}&quot;)
+}
+</code></pre>
+<p>The standard library is documented as part of the public language surface. The private compiler and runtime source are not needed to use these imports.</p>
   </main>
 </body>
 </html>

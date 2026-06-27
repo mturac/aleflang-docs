@@ -2,6 +2,10 @@
 
 This repository is GitBook-ready.
 
+It is safe to publish this documentation repository separately from the private
+Alef compiler/runtime source repository. The docs should expose the language
+contract, tutorials, and example structure, not private implementation details.
+
 GitBook reads:
 
 - `README.md` as the landing page
