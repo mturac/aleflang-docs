@@ -4,7 +4,7 @@
 
 ## Part I: Getting Started
 
-* [1. Why Alef Is A Language](book/01-why-alef-is-a-language.md)
+* [1. Learning Alef From Zero](book/01-why-alef-is-a-language.md)
 * [2. Installing And Running Alef](book/02-installing-and-running.md)
 * [3. Your First Alef Program](book/03-your-first-program.md)
 
@@ -36,3 +36,4 @@
 * [B. Command Reference](docs/runtime/cli.md)
 * [C. Standard Library Reference](docs/stdlib/overview.md)
 * [D. GitBook Publishing](docs/reference/gitbook-publishing.md)
+* [E. Dedication](docs/reference/dedication.md)

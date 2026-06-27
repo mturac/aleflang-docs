@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>13. Testing Alef Programs · Alef</title>
+  <title>E. Dedication · Alef</title>
   <link rel="icon" href="../assets/alef-logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
 </head>
@@ -15,33 +15,9 @@
     <nav><a href="docs__reference__syntax.html">A. Syntax Reference</a><a href="docs__runtime__cli.html">B. Command Reference</a><a href="docs__stdlib__overview.html">C. Standard Library Reference</a><a href="docs__reference__gitbook-publishing.html">D. GitBook Publishing</a><a href="docs__reference__dedication.html">E. Dedication</a></nav>
   </aside>
   <main class="content">
-    <h1>13. Testing Alef Programs</h1>
-<p>Alef supports tests and operational smoke scripts.</p>
-<h2>Unit Tests</h2>
-<pre><code class="language-alef">
-@test
-fn adds_numbers() {
-    assert_eq(2 + 3, 5)
-}
-</code></pre>
-<p>Run:</p>
-<pre><code class="language-bash">
-alef test .
-</code></pre>
-<h2>Smoke Tests</h2>
-<p>Public examples should include:</p>
-<pre><code class="language-bash">
-bash scripts/smoke.sh
-</code></pre>
-<p>A good smoke script exercises behavior. For a server program, it should:</p>
-<ol>
-<li>start the server on localhost</li>
-<li>request a real page or endpoint</li>
-<li>trigger a state change</li>
-<li>verify the state changed</li>
-<li>call <code>/__shutdown</code></li>
-</ol>
-<p>That is how an example proves it is a program, not a screenshot.</p>
+    <h1>Dedication</h1>
+<p>Elif/Alef Miray Turac&#x27;a.</p>
+<p>Bu kitap, merakini kaybetmeyen cocuklara ve bir gun kendi araclarini kendi cumleleriyle kurmak isteyen herkese ithaf edilmistir.</p>
   </main>
 </body>
 </html>

@@ -1,9 +1,11 @@
 # 2. Installing And Running Alef
 
-Alef users should not need the private Alef source repository.
+You do not need the private Alef source repository. Public usage starts with a
+binary named `alef`.
 
-Public usage is built around the `alef` command. Download the current macOS
-arm64 binary from the public documentation release:
+## Install On macOS Apple Silicon
+
+Download the current public binary:
 
 ```bash
 curl -L -o alef \
@@ -12,61 +14,106 @@ chmod +x ./alef
 ./alef --version
 ```
 
-Move it somewhere on your `PATH` when you want to call it as `alef`:
+Expected output starts with:
+
+```text
+Alef VM v1.0.0-rc.1
+```
+
+Move it onto your `PATH`:
 
 ```bash
 mkdir -p ~/.local/bin
 mv ./alef ~/.local/bin/alef
-alef --version
 ```
 
-Other platform binaries can be added to the same release without opening the
-private Alef compiler or runtime source repository.
-
-Verify that the command is available:
+Open a new terminal or make sure `~/.local/bin` is on your `PATH`, then check:
 
 ```bash
 alef --version
 ```
 
-If you receive a standalone native binary, place it on your `PATH` as `alef`:
+## Create Your First File
+
+Make a folder for learning:
 
 ```bash
-chmod +x ./alef
-./alef --version
+mkdir alef-learning
+cd alef-learning
 ```
 
-Example repositories should also accept `ALEF_BIN` so they can run with either
-an installed command or an explicitly provided binary:
+Create `main.alef`:
 
-```bash
-ALEF_BIN=/path/to/alef bash scripts/smoke.sh
+```alef
+fn main() {
+    println("hello, Alef")
+}
 ```
 
-## Running A File
-
-The normal command is:
+Run it:
 
 ```bash
 alef run main.alef
 ```
 
-This book uses that form in examples.
+Expected output:
 
-## Useful Diagnostics
-
-```bash
-alef health
-alef doctor
+```text
+hello, Alef
 ```
 
-Use these before guessing about provider, runtime, or feature availability.
+## Useful Commands
+
+```bash
+alef help
+alef version
+alef run main.alef
+alef repl
+alef test
+```
+
+The shorter form also works:
+
+```bash
+alef main.alef
+```
+
+This book uses `alef run main.alef` because it is explicit.
+
+## When Something Fails
+
+If the command is not found, your terminal cannot find the binary:
+
+```text
+command not found: alef
+```
+
+Fix it by running the binary directly:
+
+```bash
+./alef --version
+```
+
+or by moving it onto your `PATH`.
+
+If the file is missing, check the current folder:
+
+```bash
+ls
+```
+
+You should see `main.alef`.
 
 ## Public Examples Without Source Access
 
-Public examples should contain `.alef` programs, fixtures, smoke scripts, and
-README instructions. They should not require access to the private Alef compiler
-or runtime source tree.
+Public example repositories should contain `.alef` programs, fixtures, smoke
+scripts, and README instructions. They should not require access to the private
+Alef compiler or runtime source tree.
 
-This keeps the project shape simple: the language source can stay private while
-docs, tutorials, and example applications remain useful to readers.
+Example repos should accept `ALEF_BIN`:
+
+```bash
+ALEF_BIN=/path/to/alef bash scripts/smoke.sh
+```
+
+If `ALEF_BIN` is not set, examples should fall back to `alef` from `PATH`.

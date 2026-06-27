@@ -1,76 +1,90 @@
-# 1. Why Alef Is A Language
+# 1. Learning Alef From Zero
 
-Alef is a programming language. That matters.
+This chapter is for the reader who opens the docs and asks: "What do I do
+first?"
 
-A framework gives you conventions inside another language. A library gives you
-functions inside another language. A template gives you a starting repository.
-Alef gives you syntax, a runtime, a command-line tool, a standard library, and a
-way to express programs directly.
+Alef is a programming language. That means you write source files, run them
+with a command, and build programs out of values, functions, control flow,
+data, and modules.
 
-The examples in this book include APIs, ticket boards, and AI workflows because
-those are useful programs. They are not the identity of Alef. They are proof
-that Alef can describe real software without immediately handing the problem to
-a separate framework stack.
-
-## The Core Bet
-
-Most modern programs need the same things early:
-
-- structured data
-- control flow
-- explicit error handling
-- HTTP
-- JSON
-- persistence
-- local state
-- tests and smoke checks
-- model or provider calls
-
-Alef treats those as ordinary language work. It does not make you start with a
-pile of SDK choices before the first useful program exists.
-
-## A Language-Level Example
+An Alef file usually looks like this:
 
 ```alef
-fn owner(priority) {
-    if priority == "P0" {
-        return "incident-lead"
-    }
-    return "support"
-}
-
 fn main() {
-    println(owner("P0"))
+    println("hello, Alef")
 }
 ```
 
-There is no app framework here. This is just a program.
-
-## A Standard-Library Example
-
-```alef
-import std.http { json_response }
-
-fn with_state(response, state) {
-    return { "response" => response, "state" => state }
-}
-
-fn health(request, state) {
-    return with_state(json_response(json_encode({ "ok" => true })), state)
-}
-```
-
-This is still language documentation. The `std.http` module is part of Alef's
-standard library, just like `net/http` is part of Go's standard library.
-
-## Native-First
-
-Alef's public examples target:
+Save it as `main.alef`, then run:
 
 ```bash
 alef run main.alef
 ```
 
-That command runs an Alef program on the native runtime. Other paths can exist,
-but the book teaches the native path first because it is the production-facing
-story.
+Expected output:
+
+```text
+hello, Alef
+```
+
+That is the basic loop:
+
+1. Edit a `.alef` file.
+2. Run it.
+3. Read the output or error.
+4. Change the program.
+
+## What A Program Is
+
+A program is a set of instructions for the runtime. In Alef, the runtime starts
+with `main`.
+
+```alef
+fn main() {
+    let name = "Ada"
+    println("hello, {name}")
+}
+```
+
+Line by line:
+
+- `fn main()` declares a function named `main`.
+- `{ ... }` marks the body of the function.
+- `let name = "Ada"` creates a local value.
+- `println(...)` writes text to the terminal.
+- `{name}` inside the string inserts the value of `name`.
+
+## The Four Things To Learn First
+
+Every beginner should learn these before standard-library details:
+
+1. Values: strings, numbers, booleans, arrays, maps.
+2. Functions: named blocks of reusable behavior.
+3. Control flow: `if`, `for`, `while`, and `match`.
+4. Data modeling: maps for flexible data, structs/enums for named shapes.
+
+This book teaches those in that order.
+
+## Alef Is Not The Source Repository
+
+The public Alef experience is:
+
+- the `alef` command
+- `.alef` source files
+- this language book
+- public examples and release binaries
+
+The compiler and native runtime implementation can remain private. A user does
+not need to read the private source tree to learn or run Alef programs.
+
+## What Makes Alef Different
+
+Alef tries to make modern backend work feel like ordinary language work:
+
+- JSON should not require a project ceremony.
+- HTTP should feel like a standard-library feature.
+- failures should be explicit with `Result`.
+- AI provider calls should be documented as a standard-library surface, not as
+  a separate app template.
+
+That comes later. First, write and run small programs.

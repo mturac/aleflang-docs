@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 180" role="img" aria-labelledby="title desc">
+  <title id="title">Alef logo</title>
+  <desc id="desc">A precise Alef wordmark with an A-shaped language mark.</desc>
+  <defs>
+    <linearGradient id="alef-mark" x1="32" y1="26" x2="144" y2="154" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="0.55" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="180" rx="28" fill="#ffffff"/>
+  <g transform="translate(34 26)">
+    <path d="M63 0h34l59 128h-36l-10-24H48l-10 24H3L63 0Zm-3 76h38L79 32 60 76Z" fill="url(#alef-mark)"/>
+    <path d="M58 91h55" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+    <path d="M36 128 95 0h11L47 128H36Z" fill="#111827" opacity="0.22"/>
+  </g>
+  <g fill="#111827" transform="translate(214 46)">
+    <path d="M0 86 34 0h24l34 86H69l-6-17H29l-6 17H0Zm35-36h22L46 18 35 50Z"/>
+    <path d="M105 0h20v86h-20V0Z"/>
+    <path d="M172 88c-10 0-19-3-26-9s-10-14-10-25 3-19 10-25 15-10 25-10c11 0 19 3 25 10 6 6 9 15 9 26v5h-50c1 4 3 7 6 9 3 3 8 4 13 4 7 0 13-2 19-7l9 13c-8 6-18 9-30 9Zm-17-41h32c0-4-2-7-4-10-3-3-7-4-12-4s-9 1-12 4c-2 3-4 6-4 10Z"/>
+    <path d="M224 86V37h-10V21h10v-3c0-8 2-15 7-20 5-4 11-7 19-7 6 0 11 1 15 3l-4 14c-2-1-4-1-7-1-6 0-10 4-10 11v3h13v16h-13v49h-20Z"/>
+  </g>
+  <text x="216" y="154" fill="#5b6472" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="3">AI-NATIVE PROGRAMMING LANGUAGE</text>
+</svg>

@@ -4,21 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>3. Your First Alef Program · Alef</title>
+  <link rel="icon" href="../assets/alef-logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
   <aside class="sidebar">
-    <a class="brand" href="../index.html">Alef</a>
-    <nav><a href="book__01-why-alef-is-a-language.html">1. Why Alef Is A Language</a><a href="book__02-installing-and-running.html">2. Installing And Running Alef</a><a href="book__03-your-first-program.html">3. Your First Alef Program</a><a href="book__04-values-bindings-functions.html">4. Syntax Fundamentals</a><a href="book__05-control-flow.html">5. Control Flow</a><a href="book__06-collections-data-modeling.html">6. Collections And Data Modeling</a><a href="book__07-results-options-errors.html">7. Results, Options, And Errors</a><a href="book__08-modules-project-structure.html">8. Modules And Project Structure</a><a href="book__09-cli-native-runtime.html">9. The Alef CLI And Native Runtime</a><a href="book__10-http-json.html">10. HTTP And JSON</a><a href="book__11-database-cache-state.html">11. Database, Cache, And State</a><a href="book__12-ai-standard-library.html">12. AI As Standard Library</a><a href="book__13-testing.html">13. Testing Alef Programs</a><a href="book__14-building-a-native-api.html">14. Building A Native API</a><a href="book__15-building-ticketdesk-ui.html">15. Building TicketDesk UI</a><a href="book__16-building-ai-ticket-router.html">16. Building An AI Ticket Router</a></nav>
+    <a class="brand" href="../index.html"><img src="../assets/alef-logo.svg" alt="Alef"><span>Alef</span></a>
+    <nav><a href="book__01-why-alef-is-a-language.html">1. Learning Alef From Zero</a><a href="book__02-installing-and-running.html">2. Installing And Running Alef</a><a href="book__03-your-first-program.html">3. Your First Alef Program</a><a href="book__04-values-bindings-functions.html">4. Syntax Fundamentals</a><a href="book__05-control-flow.html">5. Control Flow</a><a href="book__06-collections-data-modeling.html">6. Collections And Data Modeling</a><a href="book__07-results-options-errors.html">7. Results, Options, And Errors</a><a href="book__08-modules-project-structure.html">8. Modules And Project Structure</a><a href="book__09-cli-native-runtime.html">9. The Alef CLI And Native Runtime</a><a href="book__10-http-json.html">10. HTTP And JSON</a><a href="book__11-database-cache-state.html">11. Database, Cache, And State</a><a href="book__12-ai-standard-library.html">12. AI As Standard Library</a><a href="book__13-testing.html">13. Testing Alef Programs</a><a href="book__14-building-a-native-api.html">14. Building A Native API</a><a href="book__15-building-ticketdesk-ui.html">15. Building TicketDesk UI</a><a href="book__16-building-ai-ticket-router.html">16. Building An AI Ticket Router</a></nav>
     <div class="nav-label">Appendices</div>
-    <nav><a href="docs__reference__syntax.html">A. Syntax Reference</a><a href="docs__runtime__cli.html">B. Command Reference</a><a href="docs__stdlib__overview.html">C. Standard Library Reference</a><a href="docs__reference__gitbook-publishing.html">D. GitBook Publishing</a></nav>
+    <nav><a href="docs__reference__syntax.html">A. Syntax Reference</a><a href="docs__runtime__cli.html">B. Command Reference</a><a href="docs__stdlib__overview.html">C. Standard Library Reference</a><a href="docs__reference__gitbook-publishing.html">D. GitBook Publishing</a><a href="docs__reference__dedication.html">E. Dedication</a></nav>
   </aside>
   <main class="content">
     <h1>3. Your First Alef Program</h1>
+<p>In this chapter, you will build a tiny ticket priority program. It is small enough to understand, but it uses the pieces you need in real Alef code: values, functions, maps, <code>if</code>, and output.</p>
+<h2>Step 1: Print Text</h2>
 <p>Create <code>main.alef</code>:</p>
 <pre><code class="language-alef">
 fn main() {
-    println(&quot;hello, Alef&quot;)
+    println(&quot;TicketDesk&quot;)
 }
 </code></pre>
 <p>Run it:</p>
@@ -27,44 +30,92 @@ alef run main.alef
 </code></pre>
 <p>Expected output:</p>
 <pre><code class="language-text">
-hello, Alef
+TicketDesk
 </code></pre>
-<h2>Add A Function</h2>
+<h2>Step 2: Store A Value</h2>
+<p>Change the file:</p>
 <pre><code class="language-alef">
-fn greet(name) {
-    return &quot;hello, {name}&quot;
+fn main() {
+    let title = &quot;Checkout timeout&quot;
+    println(title)
+}
+</code></pre>
+<p><code>let</code> creates a local value. <code>title</code> is the name. <code>&quot;Checkout timeout&quot;</code> is a string.</p>
+<p>Expected output:</p>
+<pre><code class="language-text">
+Checkout timeout
+</code></pre>
+<h2>Step 3: Use A Function</h2>
+<p>Functions make behavior reusable.</p>
+<pre><code class="language-alef">
+fn label(id, title) {
+    return &quot;{id}: {title}&quot;
 }
 
 fn main() {
-    println(greet(&quot;Ada&quot;))
+    println(label(&quot;TD-101&quot;, &quot;Checkout timeout&quot;))
 }
 </code></pre>
-<p>Functions use <code>fn</code>. String interpolation uses <code>{name}</code> inside a string.</p>
-<h2>Add Data</h2>
+<p>Expected output:</p>
+<pre><code class="language-text">
+TD-101: Checkout timeout
+</code></pre>
+<h2>Step 4: Make A Decision</h2>
+<p>Use <code>if</code> when a program needs to choose.</p>
 <pre><code class="language-alef">
+fn priority(plan, blocked) {
+    if plan == &quot;enterprise&quot; and blocked {
+        return &quot;P0&quot;
+    }
+    return &quot;P2&quot;
+}
+
+fn main() {
+    println(priority(&quot;enterprise&quot;, true))
+}
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">
+P0
+</code></pre>
+<h2>Step 5: Put Data In A Map</h2>
+<p>Maps are good for JSON-like data.</p>
+<pre><code class="language-alef">
+fn priority(plan, blocked) {
+    if plan == &quot;enterprise&quot; and blocked {
+        return &quot;P0&quot;
+    }
+    return &quot;P2&quot;
+}
+
 fn main() {
     let ticket = {
         &quot;id&quot; =&gt; &quot;TD-101&quot;,
         &quot;title&quot; =&gt; &quot;Checkout timeout&quot;,
-        &quot;status&quot; =&gt; &quot;triage&quot;
+        &quot;plan&quot; =&gt; &quot;enterprise&quot;,
+        &quot;blocked&quot; =&gt; true
     }
 
-    println(ticket[&quot;title&quot;])
+    let p = priority(ticket[&quot;plan&quot;], ticket[&quot;blocked&quot;])
+    let id = ticket[&quot;id&quot;]
+    println(&quot;{id}: {p}&quot;)
 }
 </code></pre>
-<p>Maps use <code>=&gt;</code> for key/value pairs. Access a value with brackets.</p>
-<h2>Add JSON</h2>
-<pre><code class="language-alef">
-fn main() {
-    let ticket = {
-        &quot;id&quot; =&gt; &quot;TD-101&quot;,
-        &quot;status&quot; =&gt; &quot;triage&quot;
-    }
-
-    println(json_encode(ticket))
-}
+<p>Expected output:</p>
+<pre><code class="language-text">
+TD-101: P0
 </code></pre>
-<p>Alef programs can print structured output without adding a JSON package.</p>
+<p>You now know enough to read the next chapters:</p>
+<ul>
+<li><code>fn</code> declares a function.</li>
+<li><code>let</code> binds a value.</li>
+<li>strings use double quotes.</li>
+<li>maps use <code>&quot;key&quot; =&gt; value</code>.</li>
+<li>map reads use <code>ticket[&quot;id&quot;]</code>.</li>
+<li><code>if</code> branches on a condition.</li>
+<li><code>and</code> combines boolean conditions.</li>
+<li><code>return</code> exits a function with a value.</li>
+</ul>
   </main>
 </body>
 </html>

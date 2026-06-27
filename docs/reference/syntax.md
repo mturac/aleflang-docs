@@ -218,6 +218,7 @@ fn main() {
     }
 
     let p = priority(ticket["plan"], ticket["blocked"])
-    println("{ticket[\"id\"]}: {p}")
+    let id = ticket["id"]
+    println("{id}: {p}")
 }
 ```
