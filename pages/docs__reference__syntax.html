@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A. Syntax Reference · Alef</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="../index.html">Alef</a>
+    <nav><a href="book__01-why-alef-is-a-language.html">1. Why Alef Is A Language</a><a href="book__02-installing-and-running.html">2. Installing And Running Alef</a><a href="book__03-your-first-program.html">3. Your First Alef Program</a><a href="book__04-values-bindings-functions.html">4. Values, Bindings, And Functions</a><a href="book__05-control-flow.html">5. Control Flow</a><a href="book__06-collections-data-modeling.html">6. Collections And Data Modeling</a><a href="book__07-results-options-errors.html">7. Results, Options, And Errors</a><a href="book__08-modules-project-structure.html">8. Modules And Project Structure</a><a href="book__09-cli-native-runtime.html">9. The Alef CLI And Native Runtime</a><a href="book__10-http-json.html">10. HTTP And JSON</a><a href="book__11-database-cache-state.html">11. Database, Cache, And State</a><a href="book__12-ai-standard-library.html">12. AI As Standard Library</a><a href="book__13-testing.html">13. Testing Alef Programs</a><a href="book__14-building-a-native-api.html">14. Building A Native API</a><a href="book__15-building-ticketdesk-ui.html">15. Building TicketDesk UI</a><a href="book__16-building-ai-ticket-router.html">16. Building An AI Ticket Router</a></nav>
+    <div class="nav-label">Appendices</div>
+    <nav><a href="docs__reference__syntax.html">A. Syntax Reference</a><a href="docs__runtime__cli.html">B. Command Reference</a><a href="docs__stdlib__overview.html">C. Standard Library Reference</a><a href="docs__reference__gitbook-publishing.html">D. GitBook Publishing</a></nav>
+  </aside>
+  <main class="content">
+    <h1>Syntax Reference</h1>
+<p>This page is a compact reference. Use the Language Guide for explanations.</p>
+<h2>Program Entry</h2>
+<pre><code class="language-alef">fn main() {
+    println(&quot;hello&quot;)
+}</code></pre>
+<h2>Binding</h2>
+<pre><code class="language-alef">let name = &quot;Ada&quot;
+name = &quot;Grace&quot;</code></pre>
+<h2>Function</h2>
+<pre><code class="language-alef">fn add(a, b) {
+    return a + b
+}</code></pre>
+<h2>Typed Function</h2>
+<pre><code class="language-alef">fn add(a: int, b: int) -&gt; int {
+    return a + b
+}</code></pre>
+<h2>Array</h2>
+<pre><code class="language-alef">let xs = [1, 2, 3]
+xs.push(4)</code></pre>
+<h2>Map</h2>
+<pre><code class="language-alef">let m = { &quot;id&quot; =&gt; &quot;TD-101&quot;, &quot;status&quot; =&gt; &quot;triage&quot; }</code></pre>
+<h2>Struct</h2>
+<pre><code class="language-alef">struct Ticket {
+    id: string,
+    title: string
+}</code></pre>
+<h2>Enum</h2>
+<pre><code class="language-alef">enum Status {
+    Triage,
+    Done,
+}</code></pre>
+<h2>If</h2>
+<pre><code class="language-alef">if ok {
+    return &quot;yes&quot;
+}
+return &quot;no&quot;</code></pre>
+<h2>For</h2>
+<pre><code class="language-alef">for item in items {
+    println(item)
+}</code></pre>
+<h2>Match</h2>
+<pre><code class="language-alef">match value {
+    Ok(v) =&gt; v,
+    Err(e) =&gt; 0,
+}</code></pre>
+<h2>Import</h2>
+<pre><code class="language-alef">import std.http { json_response }</code></pre>
+  </main>
+</body>
+</html>

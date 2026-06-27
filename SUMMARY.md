@@ -1,78 +1,38 @@
 # Summary
 
-* [Welcome](README.md)
+* [The Alef Programming Language](README.md)
 
-## Getting Started
+## Part I: Getting Started
 
-* [What is Alef?](docs/what-is-alef.md)
-* [Installation](docs/getting-started/installation.md)
-* [Quickstart](docs/getting-started/quickstart.md)
-* [Project Structure](docs/getting-started/project-structure.md)
+* [1. Why Alef Is A Language](book/01-why-alef-is-a-language.md)
+* [2. Installing And Running Alef](book/02-installing-and-running.md)
+* [3. Your First Alef Program](book/03-your-first-program.md)
 
-## Using and Understanding Alef
+## Part II: The Language
 
-* [Effective Alef](docs/using/effective-alef.md)
-* [FAQ](docs/using/faq.md)
-* [Editor Plugins and IDEs](docs/using/editor-tools.md)
-* [Diagnostics](docs/using/diagnostics.md)
+* [4. Values, Bindings, And Functions](book/04-values-bindings-functions.md)
+* [5. Control Flow](book/05-control-flow.md)
+* [6. Collections And Data Modeling](book/06-collections-data-modeling.md)
+* [7. Results, Options, And Errors](book/07-results-options-errors.md)
+* [8. Modules And Project Structure](book/08-modules-project-structure.md)
 
-## Language Guide
+## Part III: Runtime And Standard Library
 
-* [Language Tour](docs/language/tour.md)
-* [Variables and Values](docs/language/variables.md)
-* [Functions](docs/language/functions.md)
-* [Strings](docs/language/strings.md)
-* [Arrays and Maps](docs/language/collections.md)
-* [Structs and Enums](docs/language/structs-enums.md)
-* [Control Flow](docs/language/control-flow.md)
-* [Results and Errors](docs/language/results-errors.md)
-* [Modules and Imports](docs/language/modules.md)
+* [9. The Alef CLI And Native Runtime](book/09-cli-native-runtime.md)
+* [10. HTTP And JSON](book/10-http-json.md)
+* [11. Database, Cache, And State](book/11-database-cache-state.md)
+* [12. AI As Standard Library](book/12-ai-standard-library.md)
+* [13. Testing Alef Programs](book/13-testing.md)
 
-## Runtime and Tooling
+## Part IV: Complete Program Walkthroughs
 
-* [CLI Reference](docs/runtime/cli.md)
-* [Native Runtime](docs/runtime/native-runtime.md)
-* [Testing](docs/runtime/testing.md)
-* [Bytecode and JIT](docs/runtime/bytecode-jit.md)
+* [14. Building A Native API](book/14-building-a-native-api.md)
+* [15. Building TicketDesk UI](book/15-building-ticketdesk-ui.md)
+* [16. Building An AI Ticket Router](book/16-building-ai-ticket-router.md)
 
-## Standard Library
+## Appendices
 
-* [Stdlib Overview](docs/stdlib/overview.md)
-* [HTTP and JSON](docs/stdlib/http-json.md)
-* [AI Providers](docs/stdlib/ai.md)
-* [Database and Cache](docs/stdlib/db-cache.md)
-
-## Accessing Databases
-
-* [Accessing a Database](docs/database/accessing-databases.md)
-* [Database Smoke Tests](docs/database/database-smoke-tests.md)
-
-## Developing Modules
-
-* [Developing Modules](docs/modules/developing-modules.md)
-* [Publishing Example Repositories](docs/modules/publishing-examples.md)
-
-## Tutorials
-
-* [Build a Native API](docs/tutorials/native-api.md)
-* [Build TicketDesk UI](docs/tutorials/ticketdesk-ui.md)
-* [Build an AI Workflow](docs/tutorials/ai-workflow.md)
-
-## Cookbook
-
-* [Server-rendered UI](docs/cookbook/server-rendered-ui.md)
-* [JSON APIs](docs/cookbook/json-apis.md)
-* [Provider-gated AI Calls](docs/cookbook/provider-gated-ai.md)
-
-## Reference
-
-* [Syntax Reference](docs/reference/syntax.md)
-* [alef.mod Reference](docs/reference/alef-mod.md)
-* [Release Notes](docs/reference/release-notes.md)
-* [Examples](docs/reference/examples.md)
-* [GitBook Publishing](docs/reference/gitbook-publishing.md)
-
-## Codewalks
-
-* [TicketDesk UI Codewalk](docs/codewalks/ticketdesk-ui.md)
-* [Agent Ticket Router Codewalk](docs/codewalks/agent-ticket-router.md)
+* [A. Syntax Reference](docs/reference/syntax.md)
+* [B. Command Reference](docs/runtime/cli.md)
+* [C. Standard Library Reference](docs/stdlib/overview.md)
+* [D. GitBook Publishing](docs/reference/gitbook-publishing.md)

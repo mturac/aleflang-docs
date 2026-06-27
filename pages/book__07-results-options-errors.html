@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7. Results, Options, And Errors · Alef</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="../index.html">Alef</a>
+    <nav><a href="book__01-why-alef-is-a-language.html">1. Why Alef Is A Language</a><a href="book__02-installing-and-running.html">2. Installing And Running Alef</a><a href="book__03-your-first-program.html">3. Your First Alef Program</a><a href="book__04-values-bindings-functions.html">4. Values, Bindings, And Functions</a><a href="book__05-control-flow.html">5. Control Flow</a><a href="book__06-collections-data-modeling.html">6. Collections And Data Modeling</a><a href="book__07-results-options-errors.html">7. Results, Options, And Errors</a><a href="book__08-modules-project-structure.html">8. Modules And Project Structure</a><a href="book__09-cli-native-runtime.html">9. The Alef CLI And Native Runtime</a><a href="book__10-http-json.html">10. HTTP And JSON</a><a href="book__11-database-cache-state.html">11. Database, Cache, And State</a><a href="book__12-ai-standard-library.html">12. AI As Standard Library</a><a href="book__13-testing.html">13. Testing Alef Programs</a><a href="book__14-building-a-native-api.html">14. Building A Native API</a><a href="book__15-building-ticketdesk-ui.html">15. Building TicketDesk UI</a><a href="book__16-building-ai-ticket-router.html">16. Building An AI Ticket Router</a></nav>
+    <div class="nav-label">Appendices</div>
+    <nav><a href="docs__reference__syntax.html">A. Syntax Reference</a><a href="docs__runtime__cli.html">B. Command Reference</a><a href="docs__stdlib__overview.html">C. Standard Library Reference</a><a href="docs__reference__gitbook-publishing.html">D. GitBook Publishing</a></nav>
+  </aside>
+  <main class="content">
+    <h1>7. Results, Options, And Errors</h1>
+<p>Alef uses explicit values for operations that can fail.</p>
+<pre><code class="language-alef">fn divide(a: f64, b: f64) -&gt; Result&lt;f64, string&gt; {
+    if b == 0.0 {
+        return Err(&quot;division by zero&quot;)
+    }
+    return Ok(a / b)
+}</code></pre>
+<h2>The <code>?</code> Operator</h2>
+<p>The <code>?</code> operator unwraps <code>Ok(value)</code> and early-returns on <code>Err(error)</code>.</p>
+<pre><code class="language-alef">let x = divide(20.0, 4.0)?
+let y = divide(x, 2.0)?</code></pre>
+<h2>Matching Results</h2>
+<pre><code class="language-alef">match divide(10.0, 0.0) {
+    Ok(v) =&gt; println(v),
+    Err(e) =&gt; println(&quot;failed: {e}&quot;),
+}</code></pre>
+<h2>HTTP Failures</h2>
+<p>Native HTTP client calls return a <code>Result</code>:</p>
+<pre><code class="language-alef">match std.http.get(&quot;https://example.com&quot;) {
+    Ok(r) =&gt; println(r.body),
+    Err(e) =&gt; println(&quot;request failed: {e}&quot;),
+}</code></pre>
+<p>Network failure is not hidden. It is part of the program.</p>
+  </main>
+</body>
+</html>

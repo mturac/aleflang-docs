@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2. Installing And Running Alef · Alef</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="../index.html">Alef</a>
+    <nav><a href="book__01-why-alef-is-a-language.html">1. Why Alef Is A Language</a><a href="book__02-installing-and-running.html">2. Installing And Running Alef</a><a href="book__03-your-first-program.html">3. Your First Alef Program</a><a href="book__04-values-bindings-functions.html">4. Values, Bindings, And Functions</a><a href="book__05-control-flow.html">5. Control Flow</a><a href="book__06-collections-data-modeling.html">6. Collections And Data Modeling</a><a href="book__07-results-options-errors.html">7. Results, Options, And Errors</a><a href="book__08-modules-project-structure.html">8. Modules And Project Structure</a><a href="book__09-cli-native-runtime.html">9. The Alef CLI And Native Runtime</a><a href="book__10-http-json.html">10. HTTP And JSON</a><a href="book__11-database-cache-state.html">11. Database, Cache, And State</a><a href="book__12-ai-standard-library.html">12. AI As Standard Library</a><a href="book__13-testing.html">13. Testing Alef Programs</a><a href="book__14-building-a-native-api.html">14. Building A Native API</a><a href="book__15-building-ticketdesk-ui.html">15. Building TicketDesk UI</a><a href="book__16-building-ai-ticket-router.html">16. Building An AI Ticket Router</a></nav>
+    <div class="nav-label">Appendices</div>
+    <nav><a href="docs__reference__syntax.html">A. Syntax Reference</a><a href="docs__runtime__cli.html">B. Command Reference</a><a href="docs__stdlib__overview.html">C. Standard Library Reference</a><a href="docs__reference__gitbook-publishing.html">D. GitBook Publishing</a></nav>
+  </aside>
+  <main class="content">
+    <h1>2. Installing And Running Alef</h1>
+<p>During early public development, Alef can be used from a source checkout.</p>
+<pre><code class="language-bash">git clone https://github.com/mturac/aleflang
+cd aleflang
+npm install
+npm run build</code></pre>
+<p>Run a program through the CLI wrapper:</p>
+<pre><code class="language-bash">node dist/cli.js run examples/hello.alef</code></pre>
+<p>If you have the native binary:</p>
+<pre><code class="language-bash">native_runtime/target/release/alef run examples/hello.alef</code></pre>
+<h2>Running A File</h2>
+<p>The normal command is:</p>
+<pre><code class="language-bash">alef run main.alef</code></pre>
+<p>This book uses that form in examples.</p>
+<h2>Useful Diagnostics</h2>
+<pre><code class="language-bash">alef health
+alef doctor</code></pre>
+<p>Use these before guessing about provider, runtime, or feature availability.</p>
+<h2>Example Repositories</h2>
+<p>Public example repositories should accept <code>ALEF_BIN</code>:</p>
+<pre><code class="language-bash">ALEF_BIN=/path/to/alef bash scripts/smoke.sh</code></pre>
+<p>This keeps examples portable. A README should never require a machine-local</p>
+<p>path.</p>
+  </main>
+</body>
+</html>

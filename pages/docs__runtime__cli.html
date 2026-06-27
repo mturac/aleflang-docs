@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B. Command Reference · Alef</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="../index.html">Alef</a>
+    <nav><a href="book__01-why-alef-is-a-language.html">1. Why Alef Is A Language</a><a href="book__02-installing-and-running.html">2. Installing And Running Alef</a><a href="book__03-your-first-program.html">3. Your First Alef Program</a><a href="book__04-values-bindings-functions.html">4. Values, Bindings, And Functions</a><a href="book__05-control-flow.html">5. Control Flow</a><a href="book__06-collections-data-modeling.html">6. Collections And Data Modeling</a><a href="book__07-results-options-errors.html">7. Results, Options, And Errors</a><a href="book__08-modules-project-structure.html">8. Modules And Project Structure</a><a href="book__09-cli-native-runtime.html">9. The Alef CLI And Native Runtime</a><a href="book__10-http-json.html">10. HTTP And JSON</a><a href="book__11-database-cache-state.html">11. Database, Cache, And State</a><a href="book__12-ai-standard-library.html">12. AI As Standard Library</a><a href="book__13-testing.html">13. Testing Alef Programs</a><a href="book__14-building-a-native-api.html">14. Building A Native API</a><a href="book__15-building-ticketdesk-ui.html">15. Building TicketDesk UI</a><a href="book__16-building-ai-ticket-router.html">16. Building An AI Ticket Router</a></nav>
+    <div class="nav-label">Appendices</div>
+    <nav><a href="docs__reference__syntax.html">A. Syntax Reference</a><a href="docs__runtime__cli.html">B. Command Reference</a><a href="docs__stdlib__overview.html">C. Standard Library Reference</a><a href="docs__reference__gitbook-publishing.html">D. GitBook Publishing</a></nav>
+  </aside>
+  <main class="content">
+    <h1>CLI Reference</h1>
+<h2>Run</h2>
+<pre><code class="language-bash">alef run main.alef</code></pre>
+<p>Runs with the native runtime by default.</p>
+<h2>Interpreter Path</h2>
+<pre><code class="language-bash">alef run --interp main.alef</code></pre>
+<p>Use this for development surfaces that are not native-first.</p>
+<h2>Build</h2>
+<pre><code class="language-bash">alef build main.alef</code></pre>
+<p>Builds through the optional Go codegen path.</p>
+<h2>Diagnostics</h2>
+<pre><code class="language-bash">alef health
+alef doctor</code></pre>
+<h2>Test</h2>
+<pre><code class="language-bash">alef test .</code></pre>
+<p>Use <code>@test</code> functions for test discovery.</p>
+  </main>
+</body>
+</html>

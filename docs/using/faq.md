@@ -1,5 +1,11 @@
 # Frequently Asked Questions
 
+## Is Alef a programming language?
+
+Yes. Alef has its own syntax, runtime, command-line tool, modules, standard
+library, and examples. It can be used to build apps, but it is not merely an app
+template or framework.
+
 ## Is `alef run` the production path?
 
 Yes. Public docs and examples should target the native runtime through:
@@ -23,7 +29,7 @@ domain shape deserves a stable name and stronger documentation.
 No. Docs and smoke tests should use the deterministic `stub` provider. Live
 providers are optional and environment-gated.
 
-## Is a UI example allowed to be server-rendered?
+## Why are there UI and ticket examples in language docs?
 
-Yes. Server-rendered UI is a strong Alef demo when the point is native HTTP and
-stateful workflow, not a frontend build chain.
+Because examples should show real programs. They demonstrate the language and
+standard library in use; they do not define Alef as a framework.

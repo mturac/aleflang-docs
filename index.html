@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Alef Programming Language</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="home">
+  <main class="home-shell">
+    <section class="hero">
+      <p class="subtle">A programming language book</p>
+      <h1>The Alef Programming Language</h1>
+      <p class="lead">A book-shaped introduction to Alef: syntax, runtime, standard library, tutorials, and complete program walkthroughs.</p>
+      <div class="actions"><a href="pages/book__01-why-alef-is-a-language.html">Start reading</a><a href="pages/docs__reference__syntax.html">Syntax reference</a></div>
+    </section>
+    <section class="portal"><h1>The Alef Programming Language</h1>
+<p>Alef is a programming language.</p>
+<p>This book is the main documentation for Alef. It is written as a guided book,</p>
+<p>not a collection of disconnected notes. Read it from the beginning if you are</p>
+<p>new to Alef; use the appendices when you need a reference.</p>
+<p>Alef has:</p>
+<ul>
+<li>its own syntax</li>
+<li>modules</li>
+<li>functions</li>
+<li>values and collections</li>
+<li>structs and enums</li>
+<li><code>Result</code> and <code>Option</code> style error handling</li>
+<li>a command-line tool</li>
+<li>a native runtime</li>
+<li>a standard library for HTTP, JSON, database, cache, AI, and operational code</li>
+</ul>
+<p>AI-native means AI provider calls are part of the standard library story. It</p>
+<p>does not mean Alef is an app template. Ticket boards, APIs, and agent workflows</p>
+<p>are examples of programs written in Alef.</p>
+<h2>How To Read This Book</h2>
+<p>Start with Part I if you want the language model. It explains why Alef exists,</p>
+<p>how programs run, and how to write your first useful program.</p>
+<p>Read Part II to learn the language itself: values, functions, control flow,</p>
+<p>data modeling, errors, and modules.</p>
+<p>Read Part III to learn the runtime and standard library: the CLI, native</p>
+<p>runtime, HTTP, JSON, database, cache, AI, and testing.</p>
+<p>Read Part IV for complete program walkthroughs. These are not the definition of</p>
+<p>Alef; they are proof that the language can build real programs.</p>
+<h2>A First Alef Program</h2>
+<pre><code class="language-alef">fn greet(name) {
+    return &quot;hello, {name}&quot;
+}
+
+fn main() {
+    println(greet(&quot;Alef&quot;))
+}</code></pre>
+<p>Run it:</p>
+<pre><code class="language-bash">alef run main.alef</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">hello, Alef</code></pre>
+<h2>The Shape Of Alef</h2>
+<p>Alef code is meant to read directly:</p>
+<pre><code class="language-alef">fn priority(plan, blocked) {
+    if plan == &quot;enterprise&quot; and blocked {
+        return &quot;P0&quot;
+    }
+    return &quot;P2&quot;
+}</code></pre>
+<p>Data is structured:</p>
+<pre><code class="language-alef">let ticket = {
+    &quot;id&quot; =&gt; &quot;TD-101&quot;,
+    &quot;title&quot; =&gt; &quot;Checkout timeout&quot;,
+    &quot;status&quot; =&gt; &quot;triage&quot;
+}</code></pre>
+<p>Failures are visible:</p>
+<pre><code class="language-alef">match std.http.get(&quot;https://example.com&quot;) {
+    Ok(r) =&gt; println(r.body),
+    Err(e) =&gt; println(&quot;request failed: {e}&quot;),
+}</code></pre>
+<p>That is the center of the language: readable programs, explicit failure, and a</p>
+<p>standard library that covers the modern backend and AI-native surfaces people</p>
+<p>actually reach for.</p></section>
+    <section><h2>Chapters</h2><div class="chapter-grid"><a class="chapter-card" href="pages/book__01-why-alef-is-a-language.html"><span>1. Why Alef Is A Language</span><small>book/01-why-alef-is-a-language.md</small></a><a class="chapter-card" href="pages/book__02-installing-and-running.html"><span>2. Installing And Running Alef</span><small>book/02-installing-and-running.md</small></a><a class="chapter-card" href="pages/book__03-your-first-program.html"><span>3. Your First Alef Program</span><small>book/03-your-first-program.md</small></a><a class="chapter-card" href="pages/book__04-values-bindings-functions.html"><span>4. Values, Bindings, And Functions</span><small>book/04-values-bindings-functions.md</small></a><a class="chapter-card" href="pages/book__05-control-flow.html"><span>5. Control Flow</span><small>book/05-control-flow.md</small></a><a class="chapter-card" href="pages/book__06-collections-data-modeling.html"><span>6. Collections And Data Modeling</span><small>book/06-collections-data-modeling.md</small></a><a class="chapter-card" href="pages/book__07-results-options-errors.html"><span>7. Results, Options, And Errors</span><small>book/07-results-options-errors.md</small></a><a class="chapter-card" href="pages/book__08-modules-project-structure.html"><span>8. Modules And Project Structure</span><small>book/08-modules-project-structure.md</small></a><a class="chapter-card" href="pages/book__09-cli-native-runtime.html"><span>9. The Alef CLI And Native Runtime</span><small>book/09-cli-native-runtime.md</small></a><a class="chapter-card" href="pages/book__10-http-json.html"><span>10. HTTP And JSON</span><small>book/10-http-json.md</small></a><a class="chapter-card" href="pages/book__11-database-cache-state.html"><span>11. Database, Cache, And State</span><small>book/11-database-cache-state.md</small></a><a class="chapter-card" href="pages/book__12-ai-standard-library.html"><span>12. AI As Standard Library</span><small>book/12-ai-standard-library.md</small></a><a class="chapter-card" href="pages/book__13-testing.html"><span>13. Testing Alef Programs</span><small>book/13-testing.md</small></a><a class="chapter-card" href="pages/book__14-building-a-native-api.html"><span>14. Building A Native API</span><small>book/14-building-a-native-api.md</small></a><a class="chapter-card" href="pages/book__15-building-ticketdesk-ui.html"><span>15. Building TicketDesk UI</span><small>book/15-building-ticketdesk-ui.md</small></a><a class="chapter-card" href="pages/book__16-building-ai-ticket-router.html"><span>16. Building An AI Ticket Router</span><small>book/16-building-ai-ticket-router.md</small></a></div></section>
+  </main>
+</body>
+</html>

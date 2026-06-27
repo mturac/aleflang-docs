@@ -1,7 +1,7 @@
 # Standard Library Overview
 
-Alef's stdlib is organized around product workflows rather than isolated
-algorithms.
+Alef is a programming language, and the standard library is part of that
+language experience.
 
 Common surfaces:
 
@@ -10,6 +10,7 @@ Common surfaces:
 - `std.ai` for provider calls
 - `std.db` for database-backed examples
 - `std.cache` for small stateful helpers
-- `std.view` and `std.http.html` for rendered UI examples
+- `std.view` and `std.http.html` for rendered HTML examples
 
-The current public docs focus on native backend and agent workflows.
+The stdlib should be documented like a language stdlib: module by module,
+function by function, with runnable examples.

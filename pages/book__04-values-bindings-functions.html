@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4. Values, Bindings, And Functions · Alef</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="../index.html">Alef</a>
+    <nav><a href="book__01-why-alef-is-a-language.html">1. Why Alef Is A Language</a><a href="book__02-installing-and-running.html">2. Installing And Running Alef</a><a href="book__03-your-first-program.html">3. Your First Alef Program</a><a href="book__04-values-bindings-functions.html">4. Values, Bindings, And Functions</a><a href="book__05-control-flow.html">5. Control Flow</a><a href="book__06-collections-data-modeling.html">6. Collections And Data Modeling</a><a href="book__07-results-options-errors.html">7. Results, Options, And Errors</a><a href="book__08-modules-project-structure.html">8. Modules And Project Structure</a><a href="book__09-cli-native-runtime.html">9. The Alef CLI And Native Runtime</a><a href="book__10-http-json.html">10. HTTP And JSON</a><a href="book__11-database-cache-state.html">11. Database, Cache, And State</a><a href="book__12-ai-standard-library.html">12. AI As Standard Library</a><a href="book__13-testing.html">13. Testing Alef Programs</a><a href="book__14-building-a-native-api.html">14. Building A Native API</a><a href="book__15-building-ticketdesk-ui.html">15. Building TicketDesk UI</a><a href="book__16-building-ai-ticket-router.html">16. Building An AI Ticket Router</a></nav>
+    <div class="nav-label">Appendices</div>
+    <nav><a href="docs__reference__syntax.html">A. Syntax Reference</a><a href="docs__runtime__cli.html">B. Command Reference</a><a href="docs__stdlib__overview.html">C. Standard Library Reference</a><a href="docs__reference__gitbook-publishing.html">D. GitBook Publishing</a></nav>
+  </aside>
+  <main class="content">
+    <h1>4. Values, Bindings, And Functions</h1>
+<p>Alef uses <code>let</code> for local bindings.</p>
+<pre><code class="language-alef">let name = &quot;Ada&quot;
+let count = 3
+let ready = true</code></pre>
+<p>Bindings can be reassigned when a program needs to move state forward:</p>
+<pre><code class="language-alef">let status = &quot;triage&quot;
+status = &quot;progress&quot;</code></pre>
+<h2>Functions</h2>
+<pre><code class="language-alef">fn add(a, b) {
+    return a + b
+}</code></pre>
+<p>Typed signatures are available when they clarify the program:</p>
+<pre><code class="language-alef">fn label(id: string, title: string) -&gt; string {
+    return &quot;{id}: {title}&quot;
+}</code></pre>
+<h2>Early Returns</h2>
+<pre><code class="language-alef">fn priority(plan, blocked) {
+    if plan == &quot;enterprise&quot; and blocked {
+        return &quot;P0&quot;
+    }
+    return &quot;P2&quot;
+}</code></pre>
+<p>Alef code should read like a direct description of the case being handled.</p>
+  </main>
+</body>
+</html>

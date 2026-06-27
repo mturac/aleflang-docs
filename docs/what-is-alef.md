@@ -1,27 +1,57 @@
 # What is Alef?
 
-Alef is a programming language for production-facing backend and agent software.
-Its default story is:
+Alef is a programming language.
+
+It includes:
+
+- syntax
+- modules
+- types
+- functions
+- control flow
+- errors as values
+- a standard library
+- a command-line tool
+- a native runtime
+
+Alef is AI-native because AI provider calls and agent-era protocols are part of
+the standard library story. That does not make Alef an app framework. The
+framework-like examples exist to prove that the language and runtime can build
+real programs.
+
+The default execution story is:
 
 ```bash
 alef run main.alef
 ```
 
-That command runs the native runtime. Public examples should target this path
-unless they are specifically documenting the TypeScript interpreter or Go
-codegen.
+That command runs an Alef program on the native runtime. Public examples should
+target this path unless they are specifically documenting the TypeScript
+interpreter or Go codegen.
 
 ## Design Goals
 
-Alef optimizes for a few concrete outcomes:
+Alef optimizes for language-level outcomes:
 
-- a new developer can read the program top to bottom
-- HTTP, JSON, database, cache, and AI provider code are standard-library work
-- network and provider failures are visible as values
-- examples are smoke-testable from the command line
-- small teams can ship useful internal tools without scaffolding a framework
+- readable syntax for scripts, services, and tools
+- explicit `Result` and `Option` values for failure and absence
+- useful data modeling with maps, structs, enums, and pattern matching
+- a standard library that includes modern backend and AI surfaces
+- a runtime that can execute real programs without a separate framework stack
 
-## A Tiny Backend
+## A Tiny Program
+
+```alef
+fn greet(name) {
+    return "hello, {name}"
+}
+
+fn main() {
+    println(greet("Alef"))
+}
+```
+
+## A Tiny Backend Using The Language
 
 ```alef
 import std.http { json_response }
@@ -51,9 +81,15 @@ fn main() {
 
 ## What Alef Is Not
 
-Alef is not trying to be a thin syntax layer over an existing web framework.
-The native runtime and standard library are part of the product.
+Alef is not a web framework. It can build web servers because the standard
+library has HTTP primitives.
+
+Alef is not an AI wrapper. It can call AI providers because the standard
+library has AI provider primitives.
+
+Alef is not just examples. TicketDesk and Agent Ticket Router are example
+programs written in the language.
 
 Alef is also not a promise that every mature Go, Rust, Python, or .NET library
-already has an equivalent. The current strength is a compact, integrated path
-for backend services, AI workflows, and operational examples.
+already has an equivalent. The current strength is a compact, integrated
+language and runtime path for useful programs.
