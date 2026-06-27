@@ -1,7 +1,27 @@
 # Examples
 
 These public example repos are designed to be small enough to inspect and real
-enough to smoke test.
+enough to smoke test. The bar is: a real workflow, state changes, and a smoke
+test that proves the behavior.
+
+## TicketDesk UI
+
+Multi-workspace ticket and task manager:
+
+```bash
+git clone <repo-url>/alef-ticketdesk-ui
+cd alef-ticketdesk-ui
+ALEF_BIN=/path/to/alef bash scripts/smoke.sh
+```
+
+Shows:
+
+- server-rendered UI
+- multiple workspaces
+- ticket columns
+- assign and move actions
+- activity feed
+- JSON API state verification
 
 ## Agent Ticket Router
 
@@ -37,4 +57,3 @@ Shows:
 - JSON responses
 - problem responses
 - stateful handlers
-
