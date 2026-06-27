@@ -6,6 +6,20 @@ This book is the main documentation for Alef. It is written as a guided book,
 not a collection of disconnected notes. Read it from the beginning if you are
 new to Alef; use the appendices when you need a reference.
 
+## Published Site
+
+Read the public GitHub Pages site:
+
+```text
+https://mturac.github.io/aleflang-docs/
+```
+
+Download the current macOS arm64 binary:
+
+```text
+https://github.com/mturac/aleflang-docs/releases/latest/download/alef-darwin-arm64
+```
+
 Alef has:
 
 - its own syntax
