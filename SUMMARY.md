@@ -26,6 +26,7 @@
 * [Structs And Enums](docs/language/structs-enums.md)
 * [Results And Errors](docs/language/results-errors.md)
 * [Modules](docs/language/modules.md)
+* [Composition, IoC, DI, And AOP](docs/language/composition-ioc-di-aop.md)
 
 ## Runtime And Tooling
 

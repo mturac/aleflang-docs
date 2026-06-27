@@ -69,6 +69,25 @@ fn add(a: int, b: int) -> int {
 }
 ```
 
+## Decorator
+
+Decorators attach supported metadata to the function that follows them.
+
+```alef
+@deprecated("use new_add instead")
+fn old_add(a: int, b: int) -> int {
+    return a + b
+}
+
+@inline
+fn new_add(a: int, b: int) -> int {
+    return a + b
+}
+```
+
+Supported public decorators are `@test`, `@bench`, `@deprecated`, `@inline`,
+and `@noinline`.
+
 ## Operators
 
 ```alef

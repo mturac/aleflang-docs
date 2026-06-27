@@ -131,6 +131,31 @@ fn main() {
 }
 ```
 
+### Decorator Declarations
+
+Decorators attach supported metadata to the following function declaration.
+
+```alef
+@deprecated("use new_priority instead")
+fn old_priority(plan, blocked) {
+    if plan == "enterprise" and blocked {
+        return "P0"
+    }
+    return "P2"
+}
+```
+
+Documented decorators are:
+
+- `@test`
+- `@bench`
+- `@deprecated`
+- `@inline`
+- `@noinline`
+
+Decorators are declaration metadata. Alef does not specify arbitrary aspect
+weaving or hidden function-body rewriting as part of the public contract.
+
 ### Struct Declarations
 
 A struct declares a named record shape.
@@ -402,6 +427,28 @@ import std.http { json_response }
 
 Standard-library modules are part of the public language surface. The private
 compiler and runtime source are not required to use them.
+
+## Composition And Inversion Of Control
+
+Alef programs can use inversion of control through runtime boundaries such as
+the HTTP app, route handlers, middleware, state, tests, and benchmark runners.
+
+The public language contract favors explicit composition over hidden
+auto-wiring:
+
+```alef
+fn make_service(clock) {
+    return { "clock" => clock }
+}
+
+fn main() {
+    let service = make_service("2026-06-28T10:00:00Z")
+    println(service["clock"])
+}
+```
+
+There is no documented built-in dependency injection container. Pass
+dependencies through parameters, app state, and small composition functions.
 
 ## Program Execution
 
