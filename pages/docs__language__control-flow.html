@@ -48,6 +48,34 @@ match result {
     Err(error) =&gt; println(&quot;failed: {error}&quot;),
 }
 </code></pre>
+
+<h2><code>stream</code> and <code>yield</code></h2>
+
+<p>Alef supports streaming values lazily using <code>stream</code> and <code>yield</code>. A <code>stream</code> expression creates a lazy iterator that can be evaluated over time.</p>
+
+<pre><code class="language-alef">
+fn fibonacci(): stream {
+    let a = 0;
+    let b = 1;
+    stream {
+        yield a;
+        let next = a + b;
+        a = b;
+        b = next;
+    }
+}
+</code></pre>
+
+<p>Use <code>for</code> to consume a stream:</p>
+
+<pre><code class="language-alef">
+for num in fibonacci() {
+    if num &gt; 100 {
+        break;
+    }
+    println(num);
+}
+</code></pre>
   </main>
 </body>
 </html>

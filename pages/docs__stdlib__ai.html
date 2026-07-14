@@ -37,6 +37,30 @@ let r = std.ai.response_with(&quot;minimax&quot;, &quot;hello&quot;)
 let r = std.ai.response_with(&quot;mimo&quot;, &quot;hello&quot;)
 </code></pre>
 <p>Provider availability is environment-gated. A skipped live provider check is not a failure unless the task explicitly requires that provider.</p>
+
+<h2><code>call_llm</code> and <code>stream_llm</code></h2>
+
+<p>In addition to <code>response</code> and <code>response_with</code>, Alef supports lower-level interactions:</p>
+
+<pre><code class="language-alef">
+// Single call
+let result = std.ai.call_llm(&quot;ollama&quot;, &quot;Summarize this ticket&quot;);
+println(result);
+
+// Streaming call
+std.ai.stream_llm(&quot;ollama&quot;, &quot;Write a long story&quot;, fn(chunk) {
+    println(&quot;Received chunk: &quot; + chunk);
+});
+</code></pre>
+
+<h2><code>embed</code></h2>
+
+<p>Alef provides an <code>embed</code> function to generate embeddings from text.</p>
+
+<pre><code class="language-alef">
+let embedding = std.ai.embed(&quot;ollama&quot;, &quot;Hello world&quot;);
+println(embedding[0]); // First float in the embedding vector
+</code></pre>
   </main>
 </body>
 </html>

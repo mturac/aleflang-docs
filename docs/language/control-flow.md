@@ -43,3 +43,31 @@ match result {
     Err(error) => println("failed: {error}"),
 }
 ```
+
+## `stream` and `yield`
+
+Alef supports streaming values lazily using `stream` and `yield`. A `stream` expression creates a lazy iterator that can be evaluated over time.
+
+```alef
+fn fibonacci(): stream {
+    let a = 0;
+    let b = 1;
+    stream {
+        yield a;
+        let next = a + b;
+        a = b;
+        b = next;
+    }
+}
+```
+
+Use `for` to consume a stream:
+
+```alef
+for num in fibonacci() {
+    if num > 100 {
+        break;
+    }
+    println(num);
+}
+```
