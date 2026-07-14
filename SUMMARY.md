@@ -26,6 +26,8 @@
 * [Structs And Enums](docs/language/structs-enums.md)
 * [Results And Errors](docs/language/results-errors.md)
 * [Modules](docs/language/modules.md)
+* [Automatic Differentiation](docs/language/autodiff.md)
+* [Macros And Metaprogramming](docs/language/macros.md)
 * [Composition, IoC, DI, And AOP](docs/language/composition-ioc-di-aop.md)
 
 ## Runtime And Tooling
