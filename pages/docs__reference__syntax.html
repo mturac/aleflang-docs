@@ -166,6 +166,28 @@ fn main() {
     let id = ticket[&quot;id&quot;]
     println(&quot;{id}: {p}&quot;)
 }</code></pre>
+      <h2 id="advanced-ai-native">Advanced AI-Native</h2>
+      <p>Alef is designed for AI workloads with DeepMind/JAX-inspired vectorization, differentiation, macros, and data streams.</p>
+      <pre class="alef"><code>// 1. Vectorization (vmap) and Differentiation (grad)
+fn f(x) { x * 2.0 }
+let vec_f = vmap(f)
+let grad_f = grad(f)
+
+// 2. Metaprogramming (macro)
+macro html(content) {
+    "&lt;div class=\"ai-gen\"&gt;" + content + "&lt;/div&gt;"
+}
+let ui = html!("Hello AI")
+
+// 3. Async Streams (Generators)
+fn stream_llm() {
+    yield "Hello"
+    yield "World"
+}
+for await chunk in stream_llm() {
+    print(chunk)
+}
+</code></pre>
   </main>
 </body>
 </html>
